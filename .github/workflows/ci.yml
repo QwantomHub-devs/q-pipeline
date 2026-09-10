@@ -14,17 +14,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js LTS
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'yarn'
+          node-version: '22'
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Run ESLint
-        run: yarn lint
+        run: npm run lint
 
       - name: Run TypeScript Typecheck
         run: npx tsc --noEmit
@@ -36,17 +36,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js LTS
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'yarn'
+          node-version: '22'
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Run Test Suite
-        run: yarn test
+        run: npm test
 
   production-build-check:
     name: Production Build Verification
@@ -55,18 +55,19 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 20.x
+      - name: Setup Node.js LTS
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'yarn'
+          node-version: '22'
+          cache: 'npm'
+
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Build Next.js Application
         env:
           NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_test_ci_placeholder"
           CLERK_SECRET_KEY: "sk_test_ci_placeholder"
           DATABASE_URL: "postgres://postgres:postgres@localhost:5432/qpipeline"
-        run: yarn build
+        run: npm run build
