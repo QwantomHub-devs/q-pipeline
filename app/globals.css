@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --qh-bg: #d4d1e1;
+  --qh-surface: #bfb5cf;
+  --qh-accent: #9280ab;
+  --qh-accent-deep: #6a5882;
+  --qh-muted: #5b4e6d;
+  --qh-ink: #46335c;
+  --qh-ink-deep: #2a2136;
+}
+
+body {
+  background-color: var(--qh-bg);
+  color: var(--qh-ink);
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}

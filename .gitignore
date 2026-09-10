@@ -1,0 +1,12 @@
+node_modules
+.next
+.env.local
+.env*.local
+dist
+coverage
+
+GEMINI.md
+PROGRESS.md
+QWANTOMHUB_DESIGN_SYSTEM.md
+qwantomhub-ai-fluency-assessment-blueprint.md
+qwantomhub-pipeline-service-architecture.md
